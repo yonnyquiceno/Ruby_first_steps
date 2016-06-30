@@ -2,7 +2,7 @@
 # clases en Ruby
 class InitialClass
   # Esta es la forma como se declara
-  # un metodo o función en Ruby
+  # un metodo o funcion en Ruby
   # por estandar se usa nombre_metodo
 
   def self.say_hello
