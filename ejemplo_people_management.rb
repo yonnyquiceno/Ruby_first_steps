@@ -12,8 +12,7 @@ class UserManagement
     puts "2) Salir"
     @main_opt = gets.chomp.to_i
     if @main_opt == 1
-      puts "## Menú Usuarios ##"
-      puts "Seleccione una opción:"
+      puts %w(##Menú_Usuarios_##  Seleccione_una_opción:)
       puts "1) Registrar Usuarios"
       puts "2) Listar Usuarios"
       puts "3) Eliminar Usuario"
@@ -44,8 +43,9 @@ class UserManagement
     user['edad'] = gets.chomp.to_i
     @users[user['cedula']] = user
     puts "Usuario Registrado."
+    puts @users
     menu_ppal
-    @users
+
   end
 
   def delete_user
