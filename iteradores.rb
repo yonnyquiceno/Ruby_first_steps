@@ -1,6 +1,6 @@
 class Iteradores
   def self.exmp_upto(desde, hasta)
-    desde.upto(hasta) { |x| print "-#{x}"}
+    desde.upto(hasta) { |x| print "-#{x}" }
   end
 
   def self.exmp_step(desde, paso, hasta)

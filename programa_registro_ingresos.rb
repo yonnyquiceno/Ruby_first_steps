@@ -9,11 +9,13 @@ class RegistroIngresos
     user['nombre'] = gets.chomp
     puts 'Apellido del usuario: '
     user['apellido'] = gets.chomp
+
     user['ingresos'] = []
     for i in 0..11
       print "Entre ingresos del mes #{i + 1} "
       user['ingresos'][i] = gets.chomp.to_f
     end
+
     total_ingresos = user['ingresos'].inject { |sum, x| sum + x }
 
     if total_ingresos > 127_256
