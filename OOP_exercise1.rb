@@ -1,3 +1,6 @@
+# V1=Vendedor.new('Roberto', 'Meneses', 1234, 111222333)
+# C1=Comprador.new('Armando', 'Barrera', 1111, 2222, 500000, V1)
+# P1=Producto.new('silla', 40, 40000, 60000)
 class Persona
   attr_accessor :nombres, :apellidos, :cedula, :telefono, :lista_productos
 
@@ -15,37 +18,29 @@ class Vendedor < Persona
 
   def initialize(nombres, apellidos, cedula, telefono)
     super(nombres, apellidos, cedula, telefono)
-    @ganado=0
-  end
-
-  def ganado
-    return @ganado
+    @ganado = 0
   end
 end
 
 class Comprador < Persona
-  attr_accessor :comprados, :tope_de_dinero
+  attr_accessor :comprados, :tope_de_dinero, :gastado
 
   def initialize(nombres, apellidos, cedula, telefono, tope_de_dinero, vendedor)
     super(nombres, apellidos, cedula, telefono)
 
     @tope_de_dinero = tope_de_dinero
     @vendedor = vendedor
-    @gastado=0
+    @gastado = 0
   end
 
   def comprar(producto, cantidad)
     producto.stock = producto.stock - cantidad
-    @gastado = @gastado + (producto.precio_venta * cantidad)
-    @tope_de_dinero=@tope_de_dinero - (producto.precio_venta * cantidad)
-    @vendedor.ganado= @vendedor.ganado  + (producto.precio_venta * cantidad) - (producto.precio_base * cantidad)
-    @lista_productos.>>(producto)
+    @gastado += (producto.precio_venta * cantidad)
+    @tope_de_dinero -= (producto.precio_venta * cantidad)
+    @vendedor.ganado = @vendedor.ganado + (producto.precio_venta * cantidad) - (producto.precio_base * cantidad)
+    @vendedor.lista_productos << "#{cantidad} #{producto.nombre}(s)"
+    @lista_productos.push("#{cantidad} #{producto.nombre}(s)")
   end
-
-  def gastado
-    return @gastado
-  end
-
 end
 
 class Producto
@@ -57,3 +52,4 @@ class Producto
     @precio_venta = precio_venta
   end
 end
+# export PS1="\w\[\033[0;36m\]: "
