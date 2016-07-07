@@ -36,7 +36,7 @@ class Comprador < Persona
   def comprar(producto, cantidad)
     producto.stock = producto.stock - cantidad
     @gastado += (producto.precio_venta * cantidad)
-    @tope_de_dinero -= (producto.precio_venta * cantidad)
+    print 'no tiene mas dinero' if @gastado > @tope_de_dinero    
     @vendedor.ganado = @vendedor.ganado + (producto.precio_venta * cantidad) - (producto.precio_base * cantidad)
     @vendedor.lista_productos << "#{cantidad} #{producto.nombre}(s)"
     @lista_productos.push("#{cantidad} #{producto.nombre}(s)")
@@ -52,4 +52,13 @@ class Producto
     @precio_venta = precio_venta
   end
 end
+
+class Loader
+  def self.load
+    @@v1 = Vendedor.new('Roberto', 'Meneses', 1234, 111_222_333)
+    @@c1 = Comprador.new('Armando', 'Barrera', 1111, 2222, 500_000, v1)
+    @@p1 = Producto.new('silla', 40, 40_000, 60_000)
+  end
+end
+
 # export PS1="\w\[\033[0;36m\]: "
