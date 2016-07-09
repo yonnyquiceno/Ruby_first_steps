@@ -1,0 +1,21 @@
+def comprar(producto, cantidad)
+  producto.stock = producto.stock - cantidad
+  @gastado += (producto.precio_venta * cantidad)
+  print 'no tiene mas dinero' if @gastado > @tope_de_dinero
+  @vendedor.ganado = @vendedor.ganado + (producto.precio_venta * cantidad) - (producto.precio_base * cantidad)
+  @vendedor.lista_productos << "#{cantidad} #{producto.nombre}(s)"
+  @lista_productos.push("#{cantidad} #{producto.nombre}(s)")
+end
+
+P1=Producto.new('silla', 40, 40000, 60000)
+V1=Vendedor.new('Roberto', 'Meneses', 1234,222222)
+C1=Comprador.new('Armando', 'Barrera', 1111, 2222, 500000)
+
+for i in 0..productos.size
+if productos[i].any? {|x| x[0]=='silla'}
+return i
+
+
+
+indice_producto = productos.index(productos.include(nombre_producto))
+productos.any? {|x| x[0]=='silla'}
