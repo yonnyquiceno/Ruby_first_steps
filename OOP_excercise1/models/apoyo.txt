@@ -1,0 +1,9 @@
+p1=Producto.new('toalla', 12000, 10000, 50)
+v1=Vendedor.new('Roberto','roberto@gmail.com', nil)
+c1=Comprador.new('alex', 'alex@gmail.com',nil  , 500000, nil)
+p2=Producto.new('silla', 50000, 40000, 200)
+v2=Vendedor.new('Pepe','pepe@gmail.com', nil)
+c2=Comprador.new('Beto', 'Beto@gmail.com',nil  , 1500000, nil)
+
+v1.productos=[p1, p2]
+c1.vendedor=v1
