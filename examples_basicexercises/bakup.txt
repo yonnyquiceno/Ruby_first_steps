@@ -7,9 +7,19 @@ def comprar(producto, cantidad)
   @lista_productos.push("#{cantidad} #{producto.nombre}(s)")
 end
 
+
+K1=Keeper.new
 P1=Producto.new('silla', 40, 40000, 60000)
+P2=Producto.new('cama', 90, 500000, 700000)
 V1=Vendedor.new('Roberto', 'Meneses', 1234,222222)
+V2=Vendedor.new('Sofia', 'Aguirre', 4321,3333333)
 C1=Comprador.new('Armando', 'Barrera', 1111, 2222, 500000)
+C2=Comprador.new('Juan', 'Lopez', 222222, 33333, 2000000)
+V1.productos=[P1,P2]
+V2.productos= P1
+C1.vendedor=V1
+C2.vendedor=V2
+
 
 for i in 0..productos.size
 if productos[i].any? {|x| x[0]=='silla'}
